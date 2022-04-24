@@ -13,3 +13,17 @@ $ docker-compose up -d
 # access
 http://localhost:8000/docs#/
 ```
+
+## deply
+
+```bash
+
+$ heroku login
+
+# for the first time only
+$ heroku git:remote -a bazurecipe-meter-back
+
+# push to heroku repo
+$ git push heroku master
+
+```
