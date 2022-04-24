@@ -12,5 +12,7 @@ COPY pyproject.toml* poetry.lock* ./
 
 RUN poetry install
 
+RUN poetry show
+
 # uvicornのサーバーを立ち上げる
 ENTRYPOINT ["poetry", "run", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--reload"]
