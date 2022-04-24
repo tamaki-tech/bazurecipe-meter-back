@@ -10,7 +10,8 @@ RUN pip install poetry
 # poetryの定義ファイルをコピー (存在する場合)
 COPY pyproject.toml* poetry.lock* ./
 
-RUN poetry install
+RUN poetry config virtualenvs.in-project true && \
+    poetry install --no-dev --no-interaction
 
 RUN poetry show
 
