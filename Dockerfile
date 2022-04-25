@@ -8,7 +8,7 @@ RUN pip install poetry
 
 COPY pyproject.toml* poetry.lock* ./
 
-RUN poetry config virtualenvs.in-project true
+RUN poetry config virtualenvs.create false
 RUN poetry install
 
 # uvicornのサーバーを立ち上げる
