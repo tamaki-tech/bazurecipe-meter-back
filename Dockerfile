@@ -12,4 +12,4 @@ RUN poetry config virtualenvs.create false
 RUN poetry install
 
 # uvicornのサーバーを立ち上げる
-CMD ["uvicorn", "--host", "0.0.0.0", "--reload", "api.main:app"]
+CMD ["uvicorn", "--host", "0.0.0.0", "--reload", "main:app"]
