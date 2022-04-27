@@ -7,4 +7,4 @@ RUN pip install --trusted-host pypi.python.org -r ./requirements.txt && rm -rf ~
 
 COPY ./api /api
 
-CMD uvicorn --host 0.0.0.0 --reload api.main:app
+CMD uvicorn --host 0.0.0.0 --port=5000 --reload api.main:app
