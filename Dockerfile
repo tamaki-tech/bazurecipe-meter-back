@@ -1,15 +1,10 @@
 # python3.9のイメージをダウンロード
 FROM python:3.9-buster
-ENV PYTHONUNBUFFERED=1
 
-WORKDIR /src
+COPY requirements.txt ./
 
-RUN pip install poetry
+RUN pip install --trusted-host pypi.python.org -r ./requirements.txt && rm -rf ~/.cache/pip
 
-COPY pyproject.toml* poetry.lock* ./
+COPY ./api /api
 
-RUN poetry config virtualenvs.create false
-RUN poetry install
-
-# uvicornのサーバーを立ち上げる
-CMD ["uvicorn", "--host", "0.0.0.0", "--reload", "api.main:app"]
+CMD uvicorn --host 0.0.0.0 --reload api.main:app

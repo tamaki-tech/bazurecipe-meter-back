@@ -1,1 +1,1 @@
-web: poetry run uvicorn --host 0.0.0.0 --reload api.main:app
+web: uvicorn --host 0.0.0.0 --reload api.main:app
